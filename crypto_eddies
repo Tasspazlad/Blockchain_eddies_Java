@@ -6,7 +6,7 @@ public class crypto_eddies {
 
     }
 
-        public static void main(String[] args) {
+        public final void run(String[] args) {
             
         }(String[] args) {
 
