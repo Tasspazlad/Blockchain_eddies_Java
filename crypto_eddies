@@ -1,12 +1,14 @@
 import java.util.Date;
 import java.security.MessageDigest;
 
-public class Eddies {
-    public Eddies() {
-        
+public class crypto_eddies {
+    public crypto_eddies() {
+
     }
 
-        public final void run(String[] args) {
+        public static void main(String[] args) {
+            
+        }(String[] args) {
 
                 Block genesisBlock = new Block("Hi im the first block", "0");
                 System.out.printIn("Hash for block 1 : " + genesisBlock.hash);
