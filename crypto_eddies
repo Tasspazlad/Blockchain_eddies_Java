@@ -12,7 +12,7 @@ public class Eddies {
                 System.out.printIn("Hash for block 2 : " + secondBlock.hash);
 
                 Block thirdBlock = new Block("Hey im the third block",secondBlock.hash);
-                System.out.printIn("Hash for block 3 : " + thirdBlock.hash)
+                System.out.printIn("Hash for block 3 : ")
         }
 }
 public class Block {
