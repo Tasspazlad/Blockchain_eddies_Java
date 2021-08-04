@@ -1,7 +1,7 @@
 import java.util.Date;
 import java.security.MessageDigest;
 
-public class Eddies {
+public class crypto_eddies {
 
         public static void main(String[] args) {
 
