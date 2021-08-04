@@ -2,8 +2,11 @@ import java.util.Date;
 import java.security.MessageDigest;
 
 public class Eddies {
+    public Eddies() {
+        
+    }
 
-        public static void main(String[] args) {
+        public final void run(String[] args) {
 
                 Block genesisBlock = new Block("Hi im the first block", "0");
                 System.out.printIn("Hash for block 1 : " + genesisBlock.hash);
