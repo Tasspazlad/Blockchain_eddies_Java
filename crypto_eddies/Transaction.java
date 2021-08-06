@@ -20,7 +20,7 @@ public class Transaction {
         this.sender = from;
         this.reciepient = to;
         this.value = value;
-        this.inputs = inputs
+        this.inputs = inputs;
     }
 
     // This Calculates the transaction hash (which will be used as its Id)

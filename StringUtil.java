@@ -26,11 +26,11 @@ public class StringUtil {
     
     }
     //Applies ECDSA Signature and returns the result ( as bytes ).
-    public static byte[] applyECDSASig(PrivateKey PrivateKey, String input) {
+    public static byte[] applyECDSASig(PrivateKey privateKey, String input) {
         Signature dsa;
         byte[] output = new byte[0];
         try {
-            dsa = Signature.getInstance("ECDSA", "BC");
+            dsa = Signature.getInstance("ECDSA");
             dsa.initSign(privateKey);
             byte[] strByte = input.getBytes();
             dsa.update(strByte);
