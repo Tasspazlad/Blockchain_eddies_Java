@@ -32,5 +32,12 @@ public class Transaction {
             Float.toString(value) + sequence
         );
     }
+    //Signs all the data we dont wish to be tampered with.
+    public void generateSignature(PrivateKey privateKey) {
+        String data = StringUtil.getStringFromKey(sender) +  StringUtil.getStringFromKey(reciepient) + Float.toString(value)    ;
+        signature = StringUtil.applyECDSASig(privateKey, data);
+    }
+
+    
     
 }
