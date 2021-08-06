@@ -1,3 +1,5 @@
+package crypto_eddies;
+
 import java.util.Date;
 
 public class Block {
