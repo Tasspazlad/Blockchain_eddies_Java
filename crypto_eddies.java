@@ -11,6 +11,7 @@ import crypto_eddies.Block;
 public class crypto_eddies {
 
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
+    public static HashMap<String, TransactionOutputs> UTXOs = new HashMap<String, TransactionOutputs>(); //list of all unspent transaction.
     public static int difficulty = 5;
     public static Wallet walletA;
     public static Wallet walletB;
