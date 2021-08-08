@@ -1,7 +1,9 @@
+package crypto_eddies;
 import java.security.Security;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.GsonBuilder;
 
@@ -17,7 +19,7 @@ import crypto_eddies.Block;
 public class crypto_eddies {
 
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
-    public static HashMap<String, TransactionOutputs> UTXOs = new HashMap<String, TransactionOutputs>(); //list of all unspent transaction.
+    public static HashMap<String, TransactionOutput> UTXOs = new HashMap<String, TransactionOutput>(); //list of all unspent transaction.
     public static int difficulty = 5;
     public static float minimumTransaction = 0.1f;
     public static Wallet walletA;
@@ -33,7 +35,7 @@ public class crypto_eddies {
         Wallet coinbase = new Wallet();
 
         //create genesis transaction, which sends 100 eddies to WalletA:
-        genesisTransaction = new Transaction(coinbase.privateKey, walletA.publicKey, 100f, null);
+        genesisTransaction = new Transaction(coinbase.publicKey, walletA.publicKey, 100f, null);
         genesisTransaction.generateSignature(coinbase.privateKey); //manually sign the genesis transaction
         genesisTransaction.transactionId = "0"; //manually set the transaction id
         genesisTransaction.outputs.add(new TransactionOutput(genesisTransaction.reciepient, genesisTransaction.value, genesisTransaction.transactionId)); //manually add the Transaction Output
@@ -114,6 +116,11 @@ public class crypto_eddies {
                     tempOutput = tempUTXOs.get(input.transactionOutputId);
 
                     if(tempOutput == null) {
+                        System.out.println("#Referenced input Transaction(" + t + ") value is invalid");
+                        return false;
+                    }
+
+                    if(input.UTXO.value != tempOutput.value) {
                         System.out.println("#Referenced input Transaction(" + t + ") value is invalid");
                         return false;
                     }

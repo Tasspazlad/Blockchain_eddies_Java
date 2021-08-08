@@ -12,7 +12,7 @@ public class Block {
     private int nonce;
 
     //Block Constructor.
-    public Block(String data,String previousHash ) {
+    public Block(String previousHash ) {
         this.previousHash = previousHash;
         this.timeStamp = new Date().getTime();
         
@@ -47,7 +47,7 @@ public class Block {
     public boolean addTransaction(Transaction transaction) {
         //process transaction and check if valid, unless block is genesis block then ignore.
         if(transaction == null) return false;
-        if((previousHash != "0")) {
+        if((!"0".equals(previousHash))) {
             if((transaction.processTransaction() != true)) {
                 System.out.println("Transaction failed to process. Discarded.");
                 return false;
