@@ -9,13 +9,6 @@ import com.google.gson.GsonBuilder;
 
 import org.bouncycastle.jcajce.provider.digest.GOST3411.HashMac;
 
-import crypto_eddies.StringUtil;
-import crypto_eddies.Transaction;
-import crypto_eddies.TransactionInput;
-import crypto_eddies.TransactionOutput;
-import crypto_eddies.Wallet;
-import crypto_eddies.Block;
-
 public class crypto_eddies {
 
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
