@@ -1,13 +1,12 @@
 package crypto_eddies;
 import java.security.Security;
 import java.util.ArrayList;
-import java.util.Base64;
+//import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gson.GsonBuilder;
+//import com.google.gson.GsonBuilder;
 
-import org.bouncycastle.jcajce.provider.digest.GOST3411.HashMac;
 
 public class crypto_eddies {
 
@@ -119,20 +118,21 @@ public class crypto_eddies {
                     }
 
                     tempUTXOs.remove(input.transactionOutputId);                }
+
+                    for(TransactionOutput output: currentTransaction.outputs) {
+                        tempUTXOs.put(output.id, output);
+                    }
+        
+                    if( currentTransaction.outputs.get(0).reciepient != currentTransaction.reciepient) {
+                        System.out.println("#Transaction(" + t + ") output reciepient is not who it should be");
+                        return false;
+                    }
+                    if( currentTransaction.outputs.get(1).reciepient != currentTransaction.sender) {
+                        System.out.println("#Transaction(" + t + ") output 'change' is not sender.");
+                        return false;
+                    }
             }
 
-            for(TransactionOutput output: currentTransaction.outputs) {
-                tempUTXOs.put(output.id, output);
-            }
-
-            if( currentTransaction.outputs.get(0).reciepient != currentTransaction.reciepient) {
-                System.out.println("#Transaction(" + t + ") output reciepient is not who it should be");
-                return false;
-            }
-            if( currentTransaction.outputs.get(1).reciepient != currentTransaction.sender) {
-                System.out.println("#Transaction(" + t + ") output 'change' is not sender.");
-                return false;
-            }
             
         }
         System.out.println("Blockchain is valid");

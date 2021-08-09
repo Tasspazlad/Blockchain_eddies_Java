@@ -38,7 +38,8 @@ public class Transaction {
 
         //check if transaction is valid:
         if(getInputsValue() < crypto_eddies.minimumTransaction) {
-            System.out.println("#Transaction Inputs to small: " + getInputsValue());
+            System.out.println("#Transaction Inputs too small: " + getInputsValue());
+            System.out.println("Please enter the amount greater than " + crypto_eddies.minimumTransaction);
             return false;
         }
 

@@ -1,14 +1,11 @@
 package crypto_eddies;
-import java.security.Key;
-import java.security.MessageDigest;
-import java.security.PrivateKey;
-import java.security.PublicKey;
+import java.security.*;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 import com.google.gson.GsonBuilder;
 
-import org.bouncycastle.asn1.ocsp.Signature;
 
 public class StringUtil {
     //Applies Sha256 to a string and returns the result.
@@ -74,7 +71,7 @@ public class StringUtil {
     }
 
     //Tacks in array of transactions and returns a merkle root.
-    public static String getMerkleRoot(ArrayList<Transaction> transaction) {
+    public static String getMerkleRoot(ArrayList<Transaction> transactions) {
         int count = transactions.size();
         ArrayList<String> previousTreeLayer = new ArrayList<String>();
         for(Transaction transaction : transactions) {
